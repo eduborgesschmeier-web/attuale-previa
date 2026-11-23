@@ -3,266 +3,448 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Attuale Men · Moda masculina em Caxias do Sul</title>
-<meta name="description" content="Attuale Men: moda masculina em Caxias do Sul. Camisas, camisetas, calças, calçados e acessórios. Atendimento e pedidos pelo WhatsApp.">
+<title>Attuale Men · Moda masculina · Caxias do Sul</title>
+<meta name="description" content="Attuale Men Wear. Moda masculina em Caxias do Sul: polos, camisetas, jeans e bermudas. Elegância, conforto e personalidade. Atendimento pelo WhatsApp.">
 <meta name="robots" content="noindex">
+<meta name="theme-color" content="#0b0b0b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/polo-mostarda.webp">
 <style>
 :root{
-  --navy:#14213d; --navy-2:#1d2d52; --ink:#111827; --paper:#f6f2ea; --paper-2:#ece5d8;
-  --brass:#b08d57; --brass-2:#d7bd8a; --muted:#6b6457; --line:rgba(20,33,61,.14);
-  --serif:"Cormorant Garamond",Georgia,serif; --sans:"Manrope",system-ui,sans-serif;
+  --bg:#0b0b0b; --bg-2:#131211; --bg-3:#1b1a18;
+  --ivory:#efe9df; --ivory-2:#b9b2a6; --dim:#7d776d;
+  --gold:#c9a96b; --gold-2:#e8d3a3; --gold-3:#8a6f3e;
+  --line:rgba(239,233,223,.12);
+  --serif:"Bodoni Moda",Didot,Georgia,serif; --sans:"Inter",system-ui,sans-serif;
+  --ease:cubic-bezier(.77,0,.18,1); --ease-out:cubic-bezier(.16,1,.3,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--ivory);font-family:var(--sans);font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.carregando{overflow:hidden}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
-.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--brass)}
-h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.05;letter-spacing:-.01em}
+img{display:block;max-width:100%}
+::selection{background:var(--gold);color:var(--bg)}
+.wrap{max-width:1320px;margin:0 auto;padding:0 40px}
+.eyebrow{font-size:11px;letter-spacing:.38em;text-transform:uppercase;font-weight:500;color:var(--gold)}
+.serif{font-family:var(--serif);font-weight:400}
+.ouro{background:linear-gradient(100deg,var(--gold-3) 0%,var(--gold-2) 30%,var(--gold) 50%,var(--gold-2) 70%,var(--gold-3) 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:brilho 6s linear infinite}
+@keyframes brilho{to{background-position:-220% 0}}
 
-/* faixa da proposta */
-.proposta{background:var(--ink);color:#e9e4da;font-size:13px;text-align:center;padding:9px 16px}
-.proposta b{color:var(--brass-2);font-weight:600}
+/* grão de filme */
+.grao{position:fixed;inset:-50%;z-index:90;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grao 1s steps(6) infinite}
+@keyframes grao{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-5%)}60%{transform:translate(-6%,-2%)}80%{transform:translate(5%,4%)}100%{transform:translate(0,0)}}
+
+/* abertura */
+.abertura{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;transition:clip-path 1.2s var(--ease)}
+.abertura.sai{clip-path:inset(0 0 100% 0)}
+.abertura .logo{text-align:center}
+.abertura .letras{font-family:var(--serif);font-size:clamp(44px,9vw,120px);letter-spacing:.28em;padding-left:.28em;display:flex;overflow:hidden}
+.abertura .letras span{display:inline-block;transform:translateY(110%);animation:sobe .9s var(--ease-out) forwards}
+.abertura .traco{height:1px;background:var(--gold);width:0;margin:22px auto 14px;animation:traco 1.2s .6s var(--ease) forwards}
+.abertura small{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:18px;opacity:0;animation:aparece .8s 1.1s forwards}
+@keyframes sobe{to{transform:none}}
+@keyframes traco{to{width:min(420px,60vw)}}
+@keyframes aparece{to{opacity:1}}
+
+/* cursor */
+.cursor,.cursor-anel{position:fixed;top:0;left:0;z-index:95;pointer-events:none;border-radius:50%;transform:translate(-50%,-50%)}
+.cursor{width:6px;height:6px;background:var(--gold)}
+.cursor-anel{width:38px;height:38px;border:1px solid rgba(201,169,107,.55);transition:width .35s var(--ease-out),height .35s var(--ease-out),background .35s,border-color .35s;display:grid;place-items:center;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--bg);font-weight:600}
+.cursor-anel.grande{width:92px;height:92px;background:var(--gold);border-color:var(--gold)}
+@media (hover:none),(pointer:coarse){.cursor,.cursor-anel{display:none}}
+@media (hover:hover) and (pointer:fine){body,a,button{cursor:none}}
+
+/* faixa proposta */
+.proposta{position:relative;z-index:5;font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-align:center;padding:10px 16px;color:var(--ivory-2);border-bottom:1px solid var(--line)}
+.proposta b{color:var(--gold);font-weight:500}
 
 /* topo */
-header{position:sticky;top:0;z-index:20;background:rgba(246,242,234,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
-.marca{display:flex;align-items:baseline;gap:8px}
-.marca span{font-family:var(--serif);font-size:28px;font-weight:600;letter-spacing:.16em;color:var(--navy)}
-.marca small{font-family:var(--serif);font-style:italic;font-size:17px;color:var(--brass)}
-.nav ul{display:flex;gap:32px;list-style:none;font-size:14px;font-weight:500}
-.nav ul a:hover{color:var(--brass)}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-weight:600;font-size:15px;transition:transform .2s,background .2s}
-.btn:hover{transform:translateY(-2px)}
-.btn-navy{background:var(--navy);color:#fff}
-.btn-navy:hover{background:var(--navy-2)}
-.btn-linha{border:1px solid currentColor}
-.btn svg{width:18px;height:18px}
-.nav .btn{padding:10px 20px;font-size:14px}
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .5s,backdrop-filter .5s,transform .6s var(--ease)}
+header.solido{background:rgba(11,11,11,.72);backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid var(--line)}
+header.some{transform:translateY(-100%)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:84px}
+.marca{display:flex;flex-direction:column;line-height:1}
+.marca b{font-family:var(--serif);font-weight:400;font-size:24px;letter-spacing:.34em}
+.marca i{font-family:var(--serif);font-size:12px;color:var(--gold);letter-spacing:.12em;margin-top:5px}
+.nav ul{display:flex;gap:44px;list-style:none;font-size:12px;letter-spacing:.24em;text-transform:uppercase}
+.nav ul a{position:relative;padding:6px 0}
+.nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .6s var(--ease)}
+.nav ul a:hover::after{transform:scaleX(1);transform-origin:left}
+
+.btn{position:relative;display:inline-flex;align-items:center;gap:14px;padding:18px 34px;font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:500;border:1px solid var(--gold);color:var(--gold);overflow:hidden;isolation:isolate;transition:color .6s var(--ease)}
+.btn::before{content:"";position:absolute;inset:0;background:var(--gold);transform:translateY(101%);transition:transform .6s var(--ease);z-index:-1}
+.btn:hover{color:var(--bg)}
+.btn:hover::before{transform:none}
+.btn.cheio{background:var(--gold);color:var(--bg)}
+.btn.cheio::before{background:var(--ivory)}
+.btn .seta{width:22px;height:1px;background:currentColor;position:relative;transition:width .5s var(--ease)}
+.btn .seta::after{content:"";position:absolute;right:0;top:-3px;width:7px;height:7px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg)}
+.btn:hover .seta{width:34px}
+.nav .btn{padding:13px 22px}
 
 /* hero */
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;padding-top:88px;padding-bottom:96px}
-.hero h1{font-size:clamp(48px,7vw,92px);color:var(--navy);margin:18px 0 24px}
-.hero h1 em{color:var(--brass);font-style:italic}
-.hero p{font-size:18px;color:var(--muted);max-width:480px;margin-bottom:36px}
-.hero .acoes{display:flex;gap:14px;flex-wrap:wrap}
-.vitrine{position:relative;aspect-ratio:4/5;border-radius:220px 220px 16px 16px;overflow:hidden;background:
-  radial-gradient(circle at 30% 20%,rgba(215,189,138,.35),transparent 55%),linear-gradient(160deg,var(--navy) 0%,#0b1326 100%)}
-.vitrine .cabide{position:absolute;inset:0;display:grid;place-items:center}
-.vitrine svg{width:62%;opacity:.95}
-.vitrine .selo{position:absolute;left:24px;bottom:24px;right:24px;background:rgba(246,242,234,.96);border-radius:12px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center}
-.selo strong{font-family:var(--serif);font-size:22px;color:var(--navy);font-weight:600}
-.selo span{font-size:13px;color:var(--muted)}
+.hero{position:relative;min-height:100svh;display:grid;align-items:center;padding:140px 0 80px;overflow:hidden}
+.hero .fundo{position:absolute;inset:0;background:radial-gradient(60% 70% at 70% 40%,rgba(201,169,107,.14),transparent 70%),radial-gradient(40% 50% at 10% 90%,rgba(201,169,107,.06),transparent 70%)}
+.hero .gigante{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);font-family:var(--serif);font-size:min(26vw,420px);letter-spacing:.06em;line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(239,233,223,.07);white-space:nowrap;pointer-events:none;user-select:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;width:100%}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(54px,7.6vw,128px);line-height:.95;letter-spacing:-.02em;margin:26px 0 34px}
+.hero h1 .l{display:block;overflow:hidden;padding-bottom:.08em}
+.hero h1 .l > span{display:inline-block;transform:translateY(105%)}
+.pronto .hero h1 .l > span{transform:none;transition:transform 1.3s var(--ease-out)}
+.pronto .hero h1 .l:nth-child(2) > span{transition-delay:.12s}
+.pronto .hero h1 .l:nth-child(3) > span{transition-delay:.24s}
+.hero h1 em{font-style:italic}
+.hero p.sub{max-width:440px;color:var(--ivory-2);font-size:17px;margin-bottom:44px}
+.hero .acoes{display:flex;gap:18px;flex-wrap:wrap}
+.surge{opacity:0;transform:translateY(24px);transition:opacity 1.2s var(--ease-out),transform 1.2s var(--ease-out)}
+.pronto .surge{opacity:1;transform:none}
+.pronto .surge.d1{transition-delay:.5s}.pronto .surge.d2{transition-delay:.65s}.pronto .surge.d3{transition-delay:.8s}
 
-/* valores */
-.valores{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.valores .wrap{display:grid;grid-template-columns:repeat(3,1fr)}
-.valor{padding:36px 28px;border-left:1px solid var(--line)}
-.valor:first-child{border-left:0;padding-left:0}
-.valor h3{font-size:30px;color:var(--navy);margin-bottom:6px}
-.valor p{color:var(--muted);font-size:15px}
+.retrato{position:relative;justify-self:end;width:min(430px,100%)}
+.retrato .moldura{position:relative;aspect-ratio:9/14;border-radius:300px 300px 0 0;overflow:hidden;clip-path:inset(100% 0 0 0 round 300px 300px 0 0);transition:clip-path 1.6s .2s var(--ease)}
+.pronto .retrato .moldura{clip-path:inset(0 0 0 0 round 300px 300px 0 0)}
+.retrato img{width:100%;height:118%;object-fit:cover;object-position:50% 20%;filter:contrast(1.06) saturate(.92) brightness(.92);transform:scale(1.18);transition:transform 2.4s var(--ease-out)}
+.pronto .retrato img{transform:scale(1.02)}
+.retrato .moldura::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(11,11,11,.75))}
+.retrato .contorno{position:absolute;inset:-14px;border:1px solid rgba(201,169,107,.35);border-radius:314px 314px 0 0;border-bottom:0;pointer-events:none}
+.retrato .etiqueta{position:absolute;left:-60px;bottom:48px;background:rgba(11,11,11,.7);backdrop-filter:blur(12px);border:1px solid var(--line);padding:20px 26px;min-width:220px}
+.etiqueta small{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.etiqueta div{font-family:var(--serif);font-size:24px;margin-top:6px}
+.retrato .giro{position:absolute;right:-46px;top:40px;width:120px;height:120px;animation:gira 22s linear infinite}
+.giro text{font-size:9.6px;letter-spacing:3.4px;fill:var(--gold);text-transform:uppercase;font-family:var(--sans)}
+@keyframes gira{to{transform:rotate(360deg)}}
+.rolar{position:absolute;left:40px;bottom:34px;display:flex;align-items:center;gap:14px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+.rolar i{display:block;width:1px;height:46px;background:linear-gradient(var(--gold),transparent);animation:desce 2s var(--ease) infinite;transform-origin:top}
+@keyframes desce{0%{transform:scaleY(0)}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
-/* coleção */
-section.bloco{padding:110px 0}
-.cab{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:48px;flex-wrap:wrap}
-.cab h2{font-size:clamp(38px,5vw,60px);color:var(--navy);margin-top:12px}
-.cab p{max-width:380px;color:var(--muted)}
-.grade{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.peca{display:block;background:#fff;border-radius:14px;overflow:hidden;border:1px solid var(--line);transition:transform .25s,box-shadow .25s}
-.peca:hover{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(20,33,61,.35)}
-.peca .foto{aspect-ratio:3/4;display:grid;place-items:center;position:relative}
-.peca .foto svg{width:46%}
-.peca .foto i{position:absolute;top:12px;left:12px;font-style:normal;font-size:11px;letter-spacing:.14em;text-transform:uppercase;background:rgba(255,255,255,.9);padding:5px 10px;border-radius:999px;color:var(--navy);font-weight:600}
-.peca .info{padding:18px 18px 20px}
-.peca h3{font-family:var(--sans);font-size:16px;font-weight:600;color:var(--ink);letter-spacing:0}
-.peca .info span{font-size:14px;color:var(--brass);font-weight:600}
-.f1{background:#dfe3ea}.f2{background:var(--paper-2)}.f3{background:#d9d4ca}.f4{background:#e4dccd}
+/* letreiro */
+.letreiro{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:26px 0;background:var(--bg-2)}
+.letreiro .trilho{display:flex;width:max-content;animation:corre 38s linear infinite}
+.letreiro span{font-family:var(--serif);font-size:clamp(28px,3.4vw,46px);white-space:nowrap;padding-right:56px;display:flex;align-items:center;gap:56px}
+.letreiro span em{color:var(--gold)}
+.letreiro span::after{content:"✦";font-size:.45em;color:var(--gold)}
+@keyframes corre{to{transform:translateX(-50%)}}
+
+/* manifesto */
+.manifesto{padding:180px 0 150px}
+.manifesto p{font-family:var(--serif);font-size:clamp(30px,4.1vw,62px);line-height:1.18;max-width:1100px;letter-spacing:-.01em}
+.manifesto p .p{color:rgba(239,233,223,.14);transition:color .5s}
+.manifesto p .p.on{color:var(--ivory)}
+.manifesto p em{font-style:italic}
+.manifesto .assina{margin-top:48px;display:flex;gap:18px;align-items:center;color:var(--dim);font-size:12px;letter-spacing:.3em;text-transform:uppercase}
+.manifesto .assina::before{content:"";width:60px;height:1px;background:var(--gold)}
+
+/* lookbook horizontal */
+.lookbook{position:relative;height:340vh}
+.lookbook .fixo{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.lookbook .topo{display:flex;justify-content:space-between;align-items:end;margin-bottom:46px}
+.lookbook h2{font-family:var(--serif);font-weight:400;font-size:clamp(44px,5.6vw,92px);line-height:.95;margin-top:16px}
+.lookbook h2 em{font-style:italic}
+.contador{font-family:var(--serif);font-size:18px;color:var(--dim)}
+.contador b{color:var(--gold);font-weight:400;font-size:44px}
+.faixa{display:flex;gap:36px;padding-left:max(40px,calc((100vw - 1320px)/2 + 40px));will-change:transform}
+.look{flex:none;width:clamp(260px,24vw,350px);position:relative}
+.look:nth-child(even){margin-top:80px}
+.look .img{aspect-ratio:3/4.4;overflow:hidden;position:relative;background:var(--bg-3)}
+.look img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;filter:contrast(1.05) saturate(.9) brightness(.94);transform:scale(1.08);transition:transform 1.4s var(--ease-out),filter .8s}
+.look:hover img{transform:scale(1.15);filter:contrast(1.08) saturate(1) brightness(1)}
+.look .img::after{content:"";position:absolute;inset:0;border:1px solid rgba(201,169,107,0);transition:border-color .6s,inset .6s var(--ease)}
+.look:hover .img::after{inset:14px;border-color:rgba(201,169,107,.6)}
+.look .leg{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;gap:12px}
+.look h3{font-family:var(--serif);font-weight:400;font-size:24px}
+.look .leg span{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
+.look .num{position:absolute;top:16px;left:18px;z-index:2;font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ivory)}
+.look.fim{display:grid;place-items:center;aspect-ratio:3/4.4;border:1px solid var(--line);text-align:center;padding:30px;align-self:flex-start}
+.look.fim .serif{font-size:34px;line-height:1.1;margin-bottom:28px}
+.progresso{margin-top:54px;height:1px;background:var(--line);position:relative}
+.progresso i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--gold)}
+
+/* categorias */
+.cats{padding:170px 0 140px}
+.cats .cab{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:80px}
+.cats h2{font-family:var(--serif);font-weight:400;font-size:clamp(42px,5vw,84px);line-height:.98}
+.cats h2 em{font-style:italic}
+.cats .cab p{color:var(--ivory-2);max-width:420px;justify-self:end}
+.lista-cat{border-top:1px solid var(--line)}
+.cat{position:relative;display:grid;grid-template-columns:80px 1fr auto;align-items:center;gap:30px;padding:38px 0;border-bottom:1px solid var(--line);overflow:hidden}
+.cat::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(201,169,107,.1),transparent 70%);transform:scaleX(0);transform-origin:left;transition:transform .9s var(--ease)}
+.cat:hover::before{transform:none}
+.cat .n{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:18px;position:relative}
+.cat h3{font-family:var(--serif);font-weight:400;font-size:clamp(32px,4.4vw,68px);line-height:1;position:relative;transition:transform .8s var(--ease),letter-spacing .8s var(--ease)}
+.cat:hover h3{transform:translateX(24px);font-style:italic}
+.cat .vai{position:relative;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ivory-2);display:flex;align-items:center;gap:14px;transition:color .4s}
+.cat:hover .vai{color:var(--gold)}
+.cat .vai i{width:44px;height:44px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;transition:background .5s,border-color .5s,transform .6s var(--ease)}
+.cat:hover .vai i{background:var(--gold);border-color:var(--gold);transform:rotate(-45deg)}
+.cat .vai svg{width:14px;height:14px}
+.cat:hover .vai svg{color:var(--bg)}
+.flutuante{position:fixed;top:0;left:0;width:240px;aspect-ratio:3/4;pointer-events:none;z-index:40;overflow:hidden;opacity:0;transform:translate(-50%,-50%) scale(.85) rotate(-4deg);transition:opacity .4s,transform .6s var(--ease-out)}
+.flutuante.on{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(-4deg)}
+.flutuante img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
 
 /* combo */
-.combo{background:var(--navy);color:#f1ece2;border-radius:24px;padding:72px 64px;display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;position:relative;overflow:hidden}
-.combo::after{content:"3";position:absolute;right:-20px;top:-80px;font-family:var(--serif);font-size:420px;line-height:1;color:rgba(215,189,138,.08)}
-.combo h2{font-size:clamp(40px,5vw,64px);margin:14px 0 18px}
-.combo h2 em{color:var(--brass-2)}
-.combo p{color:#c9c3b6;max-width:440px}
-.combo .lista{list-style:none;display:grid;gap:14px;position:relative;z-index:1}
-.combo .lista li{display:flex;gap:14px;align-items:center;padding:16px 20px;border:1px solid rgba(215,189,138,.25);border-radius:12px}
-.combo .lista b{font-family:var(--serif);font-size:26px;color:var(--brass-2);min-width:28px}
-.btn-claro{background:var(--paper);color:var(--navy);margin-top:30px}
+.combo{position:relative;padding:150px 0;background:var(--ivory);color:var(--bg);overflow:hidden}
+.combo .wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.combo .eyebrow{color:var(--gold-3)}
+.combo h2{font-family:var(--serif);font-weight:400;font-size:clamp(52px,6.4vw,110px);line-height:.92;margin:22px 0 30px}
+.combo h2 em{font-style:italic;color:var(--gold-3)}
+.combo p{color:#4b463e;max-width:440px;margin-bottom:44px;font-size:17px}
+.combo .btn{border-color:var(--bg);color:var(--bg)}
+.combo .btn::before{background:var(--bg)}
+.combo .btn:hover{color:var(--ivory)}
+.leque{position:relative;height:560px}
+.leque figure{position:absolute;top:50%;left:50%;width:250px;aspect-ratio:3/4.3;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.55);transition:transform 1.1s var(--ease)}
+.leque img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.leque figure:nth-child(1){transform:translate(-50%,-50%) rotate(-3deg)}
+.leque figure:nth-child(2){transform:translate(-50%,-50%) rotate(2deg)}
+.leque figure:nth-child(3){transform:translate(-50%,-50%) rotate(-1deg)}
+.leque.aberto figure:nth-child(1){transform:translate(-118%,-46%) rotate(-9deg)}
+.leque.aberto figure:nth-child(2){transform:translate(18%,-54%) rotate(8deg)}
+.leque.aberto figure:nth-child(3){transform:translate(-50%,-50%) rotate(0deg);z-index:2}
+.leque .tres{position:absolute;right:-10px;bottom:-30px;font-family:var(--serif);font-style:italic;font-size:280px;line-height:1;color:rgba(138,111,62,.16);z-index:0}
 
-/* como comprar */
-.passos{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.passo{padding:36px 30px;border:1px solid var(--line);border-radius:16px;background:#fff}
-.passo .n{font-family:var(--serif);font-size:48px;color:var(--brass);line-height:1}
-.passo h3{font-family:var(--sans);font-size:19px;font-weight:600;margin:14px 0 8px;color:var(--navy)}
-.passo p{color:var(--muted);font-size:15px}
+/* experiência */
+.exp{padding:170px 0}
+.exp .grade{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.passo{padding:56px 44px 56px 0;border-right:1px solid var(--line);position:relative}
+.passo + .passo{padding-left:44px}
+.passo:last-child{border-right:0}
+.passo .n{font-family:var(--serif);font-size:84px;line-height:1;color:transparent;-webkit-text-stroke:1px var(--gold)}
+.passo h3{font-family:var(--serif);font-weight:400;font-size:30px;margin:26px 0 12px}
+.passo p{color:var(--ivory-2);font-size:15px;max-width:300px}
+.exp .cab{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:70px;flex-wrap:wrap}
+.exp h2{font-family:var(--serif);font-weight:400;font-size:clamp(42px,5vw,84px);line-height:.98}
+.exp h2 em{font-style:italic}
 
-/* loja */
-.loja{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.loja h2{font-size:clamp(38px,5vw,58px);color:var(--navy);margin:12px 0 18px}
-.loja p{color:var(--muted);margin-bottom:24px}
-.dados{display:grid;gap:14px;margin-bottom:30px}
-.dados div{display:flex;gap:14px;align-items:center;font-weight:500}
-.dados svg{width:20px;height:20px;color:var(--brass);flex:none}
-.mapa{aspect-ratio:1/1;border-radius:16px;background:
-  linear-gradient(var(--line) 1px,transparent 1px) 0 0/40px 40px,
-  linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/40px 40px,var(--paper-2);display:grid;place-items:center;position:relative}
-.mapa .pino{background:var(--navy);color:#fff;padding:14px 22px;border-radius:999px;font-weight:600;box-shadow:0 14px 30px -10px rgba(20,33,61,.6)}
+/* chamada final */
+.final{position:relative;padding:180px 0 140px;text-align:center;overflow:hidden;border-top:1px solid var(--line)}
+.final .halo{position:absolute;left:50%;top:50%;width:900px;height:900px;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(201,169,107,.16),transparent 60%);pointer-events:none}
+.final h2{position:relative;font-family:var(--serif);font-weight:400;font-size:clamp(52px,8vw,140px);line-height:.92;letter-spacing:-.02em}
+.final h2 em{font-style:italic}
+.final p{position:relative;color:var(--ivory-2);margin:32px auto 50px;max-width:460px}
+.final .acoes{position:relative;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
 
-/* rodapé */
-footer{background:var(--ink);color:#bdb6a8;padding:64px 0 40px;margin-top:40px}
-.rod{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.1)}
-.rod .marca span{color:#fff}
-.rod p{max-width:320px;margin-top:12px;font-size:14px}
-.rod nav{display:flex;gap:28px;font-size:14px}
-.rod nav a:hover{color:var(--brass-2)}
-.creditos{padding-top:24px;font-size:13px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer{border-top:1px solid var(--line);padding:70px 0 40px}
+.rod{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:60px}
+.rod h4{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:18px}
+.rod p,.rod a{color:var(--ivory-2);font-size:14px;display:block;margin-bottom:8px}
+.rod a:hover{color:var(--gold)}
+.assinatura{font-family:var(--serif);font-size:min(17vw,300px);line-height:.8;letter-spacing:.08em;text-align:center;color:transparent;-webkit-text-stroke:1px rgba(201,169,107,.35);user-select:none;margin-bottom:40px}
+.creditos{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);padding-top:28px;border-top:1px solid var(--line)}
 
-/* whats flutuante */
-.flutua{position:fixed;right:22px;bottom:22px;z-index:30;width:60px;height:60px;border-radius:50%;background:#1faa59;display:grid;place-items:center;box-shadow:0 12px 28px -8px rgba(0,0,0,.4)}
-.flutua svg{width:30px;height:30px;color:#fff}
+.zap{position:fixed;right:26px;bottom:26px;z-index:60;width:62px;height:62px;border-radius:50%;background:var(--gold);color:var(--bg);display:grid;place-items:center;box-shadow:0 18px 40px -12px rgba(201,169,107,.55);transition:transform .5s var(--ease-out)}
+.zap:hover{transform:scale(1.08)}
+.zap::before{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(201,169,107,.5);animation:pulso 2.4s var(--ease-out) infinite}
+@keyframes pulso{from{transform:scale(.85);opacity:1}to{transform:scale(1.35);opacity:0}}
+.zap svg{width:28px;height:28px}
 
-@media (max-width:900px){
+/* revelar no scroll */
+.rv{opacity:0;transform:translateY(50px);transition:opacity 1.3s var(--ease-out),transform 1.3s var(--ease-out)}
+.rv.on{opacity:1;transform:none}
+.rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}
+.linha-rv{display:block;overflow:hidden}
+.linha-rv > span{display:inline-block;transform:translateY(105%);transition:transform 1.3s var(--ease-out)}
+.on .linha-rv > span,.linha-rv.on > span{transform:none}
+
+@media (max-width:1000px){
+  .wrap{padding:0 24px}
   .nav ul{display:none}
-  .hero,.combo,.loja{grid-template-columns:1fr}
-  .hero{padding-top:40px;padding-bottom:64px;gap:40px}
-  .vitrine{max-width:420px;width:100%;margin:0 auto}
-  .grade{grid-template-columns:repeat(2,1fr);gap:14px}
-  .passos{grid-template-columns:1fr}
-  .valores .wrap{grid-template-columns:1fr}
-  .valor{border-left:0;border-top:1px solid var(--line);padding:26px 0}
-  .valor:first-child{border-top:0}
-  .combo{padding:48px 28px}
-  section.bloco{padding:72px 0}
+  .hero{padding:130px 0 90px}
+  .hero .wrap{grid-template-columns:1fr;gap:70px}
+  .retrato{justify-self:center;width:min(360px,86%)}
+  .retrato .etiqueta{left:-20px}
+  .retrato .giro{right:-20px;width:96px;height:96px}
+  .rolar{display:none}
+  .lookbook{height:auto}
+  .lookbook .fixo{position:static;height:auto;padding:120px 0}
+  .faixa{overflow-x:auto;scroll-snap-type:x mandatory;padding:0 24px 20px;transform:none!important;scrollbar-width:none}
+  .faixa::-webkit-scrollbar{display:none}
+  .look{scroll-snap-align:start;width:72vw}
+  .look:nth-child(even){margin-top:0}
+  .progresso{display:none}
+  .cats .cab,.combo .wrap{grid-template-columns:1fr}
+  .cats .cab p{justify-self:start}
+  .cat{grid-template-columns:44px 1fr auto;gap:16px;padding:28px 0}
+  .cat .vai span{display:none}
+  .exp .grade{grid-template-columns:1fr}
+  .passo,.passo + .passo{padding:40px 0;border-right:0;border-bottom:1px solid var(--line)}
+  .leque{height:440px}
+  .leque figure{width:190px}
+  .rod{grid-template-columns:1fr}
+  .manifesto{padding:120px 0 100px}
+  .cats,.exp{padding:110px 0}
+  .combo{padding:110px 0}
 }
 @media (max-width:480px){
   .wrap{padding:0 16px}
   .nav .btn{display:none}
-  .peca .info{padding:14px}
-  .peca h3{font-size:14px}
+  .faixa{padding:0 16px 20px}
+  .retrato .etiqueta{left:-8px;bottom:24px;min-width:0;padding:14px 18px}
+  .etiqueta div{font-size:20px}
+  .leque figure{width:150px}
+  .leque{height:360px}
+  .leque.aberto figure:nth-child(1){transform:translate(-110%,-46%) rotate(-9deg)}
+  .leque.aberto figure:nth-child(2){transform:translate(10%,-54%) rotate(8deg)}
+  .btn{padding:16px 24px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv,.surge{opacity:1;transform:none}
+  .linha-rv > span,.hero h1 .l > span{transform:none}
+  .retrato .moldura{clip-path:none}
+  .abertura{display:none}
 }
 </style>
 </head>
-<body>
+<body class="carregando">
 
-<div class="proposta">Prévia de site feita para a <b>Attuale Men</b> · as fotos de vocês entram no lugar das ilustrações</div>
+<div class="abertura" id="abertura" aria-hidden="true">
+  <div class="logo">
+    <div class="letras"><span style="animation-delay:.05s">A</span><span style="animation-delay:.1s">T</span><span style="animation-delay:.15s">T</span><span style="animation-delay:.2s">U</span><span style="animation-delay:.25s">A</span><span style="animation-delay:.3s">L</span><span style="animation-delay:.35s">E</span></div>
+    <div class="traco"></div>
+    <small>Men Wear · Caxias do Sul</small>
+  </div>
+</div>
 
-<header>
+<div class="grao" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"></div>
+<div class="cursor-anel" aria-hidden="true"></div>
+<div class="flutuante" aria-hidden="true"><img alt="" src="img/polo-bordo.webp"></div>
+
+<header id="topo">
+  <div class="proposta">Prévia de site feita para a <b>Attuale Men</b></div>
   <div class="wrap nav">
-    <a href="#inicio" class="marca"><span>ATTUALE</span><small>Men Wear</small></a>
+    <a href="#inicio" class="marca" data-cursor><b>ATTUALE</b><i>Men Wear</i></a>
     <ul>
-      <li><a href="#colecao">Coleção 2026</a></li>
-      <li><a href="#combo">Combos</a></li>
-      <li><a href="#comprar">Como comprar</a></li>
-      <li><a href="#loja">A loja</a></li>
+      <li><a href="#lookbook">Lookbook</a></li>
+      <li><a href="#colecao">Coleção</a></li>
+      <li><a href="#combo">Combo</a></li>
+      <li><a href="#atendimento">Atendimento</a></li>
     </ul>
-    <a class="btn btn-navy" href="https://wa.me/5554991742698?text=Oi%2C%20vim%20pelo%20site%20da%20Attuale" target="_blank" rel="noopener">Falar no WhatsApp</a>
+    <a class="btn" href="https://wa.me/5554991742698?text=Oi%2C%20vim%20pelo%20site%20da%20Attuale" target="_blank" rel="noopener">WhatsApp <span class="seta"></span></a>
   </div>
 </header>
 
 <main id="inicio">
-  <div class="wrap hero">
-    <div>
-      <div class="eyebrow">Moda masculina · Caxias do Sul</div>
-      <h1>Estilo que <em>fala</em> antes de você.</h1>
-      <p>Elegância, conforto e personalidade em cada peça. Da camiseta do dia a dia ao look da ocasião especial, a gente monta com você.</p>
-      <div class="acoes">
-        <a class="btn btn-navy" href="#colecao">Ver a coleção 2026</a>
-        <a class="btn btn-linha" href="https://wa.me/5554991742698?text=Oi%2C%20quero%20ajuda%20pra%20montar%20um%20look" target="_blank" rel="noopener">Montar meu look</a>
-      </div>
-    </div>
-    <div class="vitrine" aria-hidden="true">
-      <div class="cabide">
-        <svg viewBox="0 0 200 220" fill="none" stroke="#d7bd8a" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round">
-          <path d="M100 18a12 12 0 1 1 12 12c-6 0-12 4-12 10v6"/>
-          <path d="M100 46 18 92h164z"/>
-          <path d="M58 92l-22 40 26 10 10-24v90h56v-90l10 24 26-10-22-40"/>
-          <path d="M86 92l14 22 14-22"/><path d="M100 114v84"/>
-          <circle cx="100" cy="136" r="2" fill="#d7bd8a"/><circle cx="100" cy="158" r="2" fill="#d7bd8a"/><circle cx="100" cy="180" r="2" fill="#d7bd8a"/>
-        </svg>
-      </div>
-      <div class="selo"><div><strong>Coleção 2026</strong><br><span>Novidades toda semana</span></div><span>Caxias do Sul · RS</span></div>
-    </div>
-  </div>
-
-  <div class="valores">
+  <section class="hero">
+    <div class="fundo"></div>
+    <div class="gigante" aria-hidden="true">ATTUALE</div>
     <div class="wrap">
-      <div class="valor"><h3>Elegância</h3><p>Cortes que valorizam, para o trabalho e para a noite.</p></div>
-      <div class="valor"><h3>Conforto</h3><p>Tecidos que acompanham o seu dia inteiro.</p></div>
-      <div class="valor"><h3>Personalidade</h3><p>Peças que combinam com você, não com todo mundo.</p></div>
+      <div>
+        <div class="eyebrow surge d1">Coleção 2026 · Moda masculina</div>
+        <h1><span class="l"><span>Estilo que</span></span><span class="l"><span><em class="ouro">fala</em> antes</span></span><span class="l"><span>de você.</span></span></h1>
+        <p class="sub surge d2">Elegância, conforto e personalidade em cada peça. Da polo do dia a dia ao look da ocasião especial, a gente monta com você.</p>
+        <div class="acoes surge d3">
+          <a class="btn cheio" href="#lookbook">Ver o lookbook <span class="seta"></span></a>
+          <a class="btn" href="https://wa.me/5554991742698?text=Oi%2C%20quero%20ajuda%20pra%20montar%20um%20look" target="_blank" rel="noopener">Montar meu look</a>
+        </div>
+      </div>
+      <div class="retrato">
+        <div class="contorno"></div>
+        <div class="moldura"><img src="img/polo-mostarda.webp" alt="Polo mostarda com jeans escuro e tênis branco" data-parallax="0.12"></div>
+        <svg class="giro" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="circ" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs><text><textPath href="#circ">Elegância · Conforto · Personalidade · </textPath></text><circle cx="60" cy="60" r="3" fill="#c9a96b"/></svg>
+        <div class="etiqueta"><small>Em destaque</small><div>Polo <em>Mostarda</em></div></div>
+      </div>
+    </div>
+    <div class="rolar"><i></i>Role para descobrir</div>
+  </section>
+
+  <div class="letreiro" aria-hidden="true">
+    <div class="trilho">
+      <span>Elegância</span><span><em>Conforto</em></span><span>Personalidade</span><span><em>Coleção 2026</em></span><span>Caxias do Sul</span>
+      <span>Elegância</span><span><em>Conforto</em></span><span>Personalidade</span><span><em>Coleção 2026</em></span><span>Caxias do Sul</span>
     </div>
   </div>
 
-  <section class="bloco" id="colecao">
+  <section class="manifesto">
+    <div class="wrap">
+      <div class="eyebrow rv" style="margin-bottom:40px">Manifesto</div>
+      <p id="manifesto">Para o homem que entende que <em>estilo</em> não é sobre chamar atenção. É sobre caimento, sobre o tecido certo, sobre se sentir bem do primeiro café ao último compromisso do dia.</p>
+      <div class="assina rv">Attuale Men Wear</div>
+    </div>
+  </section>
+
+  <section class="lookbook" id="lookbook">
+    <div class="fixo">
+      <div class="wrap topo">
+        <div><div class="eyebrow">Lookbook 2026</div><h2><span class="linha-rv rv-linha"><span>Peças que</span></span><span class="linha-rv rv-linha"><span><em>vestem bem.</em></span></span></h2></div>
+        <div class="contador"><b id="cont">01</b> / 08</div>
+      </div>
+      <div class="faixa" id="faixa">
+        <a class="look" data-cursor="Ver" href="https://wa.me/5554991742698?text=Oi%2C%20quero%20a%20polo%20bord%C3%B4" target="_blank" rel="noopener"><span class="num">01</span><div class="img"><img loading="lazy" src="img/polo-bordo.webp" alt="Polo bordô com bermuda bege"></div><div class="leg"><h3>Polo Bordô</h3><span>Consultar</span></div></a>
+        <a class="look" data-cursor="Ver" href="https://wa.me/5554991742698?text=Oi%2C%20quero%20a%20camiseta%20off-white" target="_blank" rel="noopener"><span class="num">02</span><div class="img"><img loading="lazy" src="img/off-white.webp" alt="Camiseta off-white com bermuda marrom"></div><div class="leg"><h3>Básica Off-White</h3><span>Consultar</span></div></a>
+        <a class="look" data-cursor="Ver" href="https://wa.me/5554991742698?text=Oi%2C%20quero%20o%20look%20camiseta%20preta%20e%20jeans" target="_blank" rel="noopener"><span class="num">03</span><div class="img"><img loading="lazy" src="img/preta-jeans.webp" alt="Camiseta preta com calça jeans clara"></div><div class="leg"><h3>Essencial Preta</h3><span>Consultar</span></div></a>
+        <a class="look" data-cursor="Ver" href="https://wa.me/5554991742698?text=Oi%2C%20quero%20a%20camiseta%20caramelo" target="_blank" rel="noopener"><span class="num">04</span><div class="img"><img loading="lazy" src="img/caramelo.webp" alt="Camiseta caramelo com jeans claro"></div><div class="leg"><h3>Caramelo</h3><span>Consultar</span></div></a>
+        <a class="look" data-cursor="Ver" href="https://wa.me/5554991742698?text=Oi%2C%20quero%20a%20camiseta%20bord%C3%B4" target="_blank" rel="noopener"><span class="num">05</span><div class="img"><img loading="lazy" src="img/bordo-jeans.webp" alt="Camiseta bordô com jeans"></div><div class="leg"><h3>Vinho &amp; Denim</h3><span>Consultar</span></div></a>
+        <a class="look" data-cursor="Ver" href="https://wa.me/5554991742698?text=Oi%2C%20quero%20a%20camiseta%20creme%20com%20bermuda%20jeans" target="_blank" rel="noopener"><span class="num">06</span><div class="img"><img loading="lazy" src="img/creme-bermuda.webp" alt="Camiseta creme com bermuda jeans"></div><div class="leg"><h3>Verão Creme</h3><span>Consultar</span></div></a>
+        <a class="look" data-cursor="Ver" href="https://wa.me/5554991742698?text=Oi%2C%20quero%20o%20look%20preto%20com%20bermuda%20jeans" target="_blank" rel="noopener"><span class="num">07</span><div class="img"><img loading="lazy" src="img/preta-bermuda.webp" alt="Camiseta preta com bermuda jeans"></div><div class="leg"><h3>Preto Casual</h3><span>Consultar</span></div></a>
+        <a class="look" data-cursor="Ver" href="https://wa.me/5554991742698?text=Oi%2C%20quero%20a%20polo%20mostarda" target="_blank" rel="noopener"><span class="num">08</span><div class="img"><img loading="lazy" src="img/polo-mostarda.webp" alt="Polo mostarda com jeans escuro"></div><div class="leg"><h3>Polo Mostarda</h3><span>Consultar</span></div></a>
+        <div class="look fim"><div><div class="serif">Viu algo<br><em>que é a sua cara?</em></div><a class="btn" href="https://wa.me/5554991742698?text=Oi%2C%20vi%20o%20lookbook%20e%20quero%20saber%20mais" target="_blank" rel="noopener">Chamar a loja <span class="seta"></span></a></div></div>
+      </div>
+      <div class="wrap"><div class="progresso"><i id="barra"></i></div></div>
+    </div>
+  </section>
+
+  <section class="cats" id="colecao">
     <div class="wrap">
       <div class="cab">
-        <div><div class="eyebrow">Coleção 2026</div><h2>Escolha a peça,<br>a gente separa.</h2></div>
-        <p>Toque em qualquer peça e fale direto com a loja pelo WhatsApp: tamanho, cor e disponibilidade na hora.</p>
+        <h2 class="rv"><span class="linha-rv"><span>A coleção,</span></span><span class="linha-rv"><span><em>por peça.</em></span></span></h2>
+        <p class="rv d1">Escolha a categoria e fale direto com a loja. Tamanho, cor e disponibilidade confirmados na hora, sem fila e sem complicação.</p>
+      </div>
+      <div class="lista-cat">
+        <a class="cat rv" data-img="img/polo-bordo.webp" href="https://wa.me/5554991742698?text=Oi%2C%20quero%20ver%20as%20polos" target="_blank" rel="noopener"><span class="n">01</span><h3>Polos</h3><span class="vai"><span>Ver modelos</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></span></a>
+        <a class="cat rv" data-img="img/off-white.webp" href="https://wa.me/5554991742698?text=Oi%2C%20quero%20ver%20as%20camisetas" target="_blank" rel="noopener"><span class="n">02</span><h3>Camisetas</h3><span class="vai"><span>Ver modelos</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></span></a>
+        <a class="cat rv" data-img="img/caramelo.webp" href="https://wa.me/5554991742698?text=Oi%2C%20quero%20ver%20as%20cal%C3%A7as%20jeans" target="_blank" rel="noopener"><span class="n">03</span><h3>Jeans</h3><span class="vai"><span>Ver modelos</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></span></a>
+        <a class="cat rv" data-img="img/creme-bermuda.webp" href="https://wa.me/5554991742698?text=Oi%2C%20quero%20ver%20as%20bermudas" target="_blank" rel="noopener"><span class="n">04</span><h3>Bermudas</h3><span class="vai"><span>Ver modelos</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></span></a>
+        <a class="cat rv" data-img="img/preta-jeans.webp" href="https://wa.me/5554991742698?text=Oi%2C%20quero%20ver%20cal%C3%A7ados%20e%20acess%C3%B3rios" target="_blank" rel="noopener"><span class="n">05</span><h3>Calçados &amp; acessórios</h3><span class="vai"><span>Ver modelos</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="combo" id="combo">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow rv">Oferta da casa</div>
+        <h2 class="rv d1"><span class="linha-rv"><span>Combo</span></span><span class="linha-rv"><span><em>3 camisetas.</em></span></span></h2>
+        <p class="rv d2">O básico impecável que resolve a semana inteira. Escolha três cores, misture os tamanhos, e a gente deixa separado para você.</p>
+        <a class="btn rv d2" href="https://wa.me/5554991742698?text=Oi%2C%20quero%20o%20combo%203%20camisetas" target="_blank" rel="noopener">Quero o combo <span class="seta"></span></a>
+      </div>
+      <div class="leque" id="leque">
+        <span class="tres">3</span>
+        <figure><img loading="lazy" src="img/bordo-jeans.webp" alt="Camiseta bordô"></figure>
+        <figure><img loading="lazy" src="img/caramelo.webp" alt="Camiseta caramelo"></figure>
+        <figure><img loading="lazy" src="img/off-white.webp" alt="Camiseta off-white"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="exp" id="atendimento">
+    <div class="wrap">
+      <div class="cab">
+        <h2 class="rv"><span class="linha-rv"><span>Atendimento</span></span><span class="linha-rv"><span><em>de alfaiataria.</em></span></span></h2>
+        <div class="eyebrow rv d1">Como comprar</div>
       </div>
       <div class="grade">
-        <a class="peca" href="https://wa.me/5554991742698?text=Oi%2C%20quero%20ver%20as%20camisas" target="_blank" rel="noopener">
-          <div class="foto f1"><i>Novo</i><svg viewBox="0 0 100 100" fill="none" stroke="#14213d" stroke-width="2"><path d="M35 15 15 28l8 20 10-5v42h34V43l10 5 8-20-20-13"/><path d="M35 15l15 16 15-16"/><path d="M50 31v54"/></svg></div>
-          <div class="info"><h3>Camisas</h3><span>Ver modelos</span></div>
-        </a>
-        <a class="peca" href="https://wa.me/5554991742698?text=Oi%2C%20quero%20ver%20as%20camisetas" target="_blank" rel="noopener">
-          <div class="foto f2"><i>Combo</i><svg viewBox="0 0 100 100" fill="none" stroke="#14213d" stroke-width="2"><path d="M38 16 16 28l8 18 10-5v44h32V41l10 5 8-18-22-12c-2 6-6 9-12 9s-10-3-12-9z"/></svg></div>
-          <div class="info"><h3>Camisetas</h3><span>Ver modelos</span></div>
-        </a>
-        <a class="peca" href="https://wa.me/5554991742698?text=Oi%2C%20quero%20ver%20as%20cal%C3%A7as%20e%20bermudas" target="_blank" rel="noopener">
-          <div class="foto f3"><svg viewBox="0 0 100 100" fill="none" stroke="#14213d" stroke-width="2"><path d="M30 12h40l4 76H56L50 40l-6 48H26z"/><path d="M30 20h40"/></svg></div>
-          <div class="info"><h3>Calças e bermudas</h3><span>Ver modelos</span></div>
-        </a>
-        <a class="peca" href="https://wa.me/5554991742698?text=Oi%2C%20quero%20ver%20os%20cal%C3%A7ados%20e%20acess%C3%B3rios" target="_blank" rel="noopener">
-          <div class="foto f4"><svg viewBox="0 0 100 100" fill="none" stroke="#14213d" stroke-width="2"><path d="M14 62c0-8 4-18 8-22l10 6c6 4 14 6 22 6l18 2c8 1 14 5 14 12v4H14z"/><path d="M14 70h72"/></svg></div>
-          <div class="info"><h3>Calçados e acessórios</h3><span>Ver modelos</span></div>
-        </a>
+        <div class="passo rv"><div class="n">01</div><h3>Escolha a peça</h3><p>Navegue pelo lookbook e toque no que combinar com você.</p></div>
+        <div class="passo rv d1"><div class="n">02</div><h3>Fale com a loja</h3><p>A mensagem já vai pronta no WhatsApp. A gente confirma tamanho, cor e valor.</p></div>
+        <div class="passo rv d2"><div class="n">03</div><h3>Retire ou receba</h3><p>Passe na loja em Caxias do Sul ou combine a entrega com a gente.</p></div>
       </div>
     </div>
   </section>
 
-  <div class="wrap" id="combo">
-    <div class="combo">
-      <div style="position:relative;z-index:1">
-        <div class="eyebrow" style="color:var(--brass-2)">Oferta da casa</div>
-        <h2>Combo <em>3 camisetas</em></h2>
-        <p>O básico bem feito que resolve a semana. Escolha as cores e os tamanhos e a gente deixa separado para você.</p>
-        <a class="btn btn-claro" href="https://wa.me/5554991742698?text=Oi%2C%20quero%20o%20combo%203%20camisetas" target="_blank" rel="noopener">Quero o combo</a>
-      </div>
-      <ul class="lista">
-        <li><b>1</b>Escolha 3 camisetas da coleção</li>
-        <li><b>2</b>Misture cores e tamanhos</li>
-        <li><b>3</b>Retire na loja ou combine a entrega</li>
-      </ul>
-    </div>
-  </div>
-
-  <section class="bloco" id="comprar">
+  <section class="final">
+    <div class="halo"></div>
     <div class="wrap">
-      <div class="cab"><div><div class="eyebrow">Como comprar</div><h2>Simples como mandar<br>uma mensagem.</h2></div></div>
-      <div class="passos">
-        <div class="passo"><div class="n">01</div><h3>Escolha no site</h3><p>Veja as peças da coleção e toque na que gostou.</p></div>
-        <div class="passo"><div class="n">02</div><h3>Fale no WhatsApp</h3><p>A mensagem já sai pronta. A gente confirma tamanho, cor e valor.</p></div>
-        <div class="passo"><div class="n">03</div><h3>Retire ou receba</h3><p>Passe na loja em Caxias ou combine a entrega com a gente.</p></div>
+      <div class="eyebrow rv">Attuale Men Wear</div>
+      <h2 class="rv d1" style="margin-top:28px"><span class="linha-rv"><span>Vista-se de</span></span><span class="linha-rv"><span><em class="ouro">quem você é.</em></span></span></h2>
+      <p class="rv d2">Atendimento próximo, com quem entende de caimento e de combinação. Em Caxias do Sul.</p>
+      <div class="acoes rv d2">
+        <a class="btn cheio" href="https://wa.me/5554991742698?text=Oi%2C%20vim%20pelo%20site%20da%20Attuale" target="_blank" rel="noopener">Falar no WhatsApp <span class="seta"></span></a>
+        <a class="btn" href="https://www.instagram.com/attuale_men/" target="_blank" rel="noopener">@attuale_men</a>
       </div>
-    </div>
-  </section>
-
-  <section class="bloco" id="loja" style="padding-top:0">
-    <div class="wrap loja">
-      <div>
-        <div class="eyebrow">A loja</div>
-        <h2>Vista-se de quem<br>você é.</h2>
-        <p>A Attuale nasceu para o homem que valoriza estilo sem abrir mão do conforto. Atendimento de perto, com quem entende de caimento e de combinação.</p>
-        <div class="dados">
-          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.6 7-13a7 7 0 1 0-14 0c0 5.4 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>Caxias do Sul · RS</div>
-          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>(54) 99174-2698</div>
-          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>@attuale_men</div>
-        </div>
-        <a class="btn btn-navy" href="https://www.instagram.com/attuale_men/" target="_blank" rel="noopener">Ver no Instagram</a>
-      </div>
-      <div class="mapa"><div class="pino">Attuale Men · Caxias do Sul</div></div>
     </div>
   </section>
 </main>
@@ -270,15 +452,101 @@ footer{background:var(--ink);color:#bdb6a8;padding:64px 0 40px;margin-top:40px}
 <footer>
   <div class="wrap">
     <div class="rod">
-      <div><a class="marca" href="#inicio"><span>ATTUALE</span><small>Men Wear</small></a><p>Moda masculina para homens que valorizam estilo. Elegância, conforto e personalidade.</p></div>
-      <nav><a href="#colecao">Coleção</a><a href="#combo">Combos</a><a href="#comprar">Como comprar</a><a href="https://wa.me/5554991742698" target="_blank" rel="noopener">WhatsApp</a></nav>
+      <div><a href="#inicio" class="marca"><b>ATTUALE</b><i>Men Wear</i></a><p style="margin-top:20px;max-width:320px">Moda masculina para homens que valorizam estilo. Elegância, conforto e personalidade.</p></div>
+      <div><h4>Loja</h4><p>Caxias do Sul · RS</p><a href="https://wa.me/5554991742698" target="_blank" rel="noopener">(54) 99174-2698</a><a href="https://www.instagram.com/attuale_men/" target="_blank" rel="noopener">Instagram</a></div>
+      <div><h4>Navegar</h4><a href="#lookbook">Lookbook</a><a href="#colecao">Coleção</a><a href="#combo">Combo 3 camisetas</a><a href="#atendimento">Como comprar</a></div>
     </div>
-    <div class="creditos"><span>© 2026 Attuale Men · Caxias do Sul, RS</span><span>Prévia de site por Eduardo Schmeier</span></div>
+    <div class="assinatura" aria-hidden="true">ATTUALE</div>
+    <div class="creditos"><span>© 2026 Attuale Men Wear</span><span>Prévia de site por Eduardo Schmeier</span></div>
   </div>
 </footer>
 
-<a class="flutua" href="https://wa.me/5554991742698?text=Oi%2C%20vim%20pelo%20site%20da%20Attuale" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+<a class="zap" href="https://wa.me/5554991742698?text=Oi%2C%20vim%20pelo%20site%20da%20Attuale" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zm8.4-18.2A11.8 11.8 0 0 0 1.6 17.9L0 24l6.3-1.6A11.8 11.8 0 0 0 24 12c0-3.2-1.2-6.1-3.6-8.4z"/></svg>
 </a>
+
+<script>
+(function(){
+  var reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fino = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var body = document.body, ab = document.getElementById('abertura');
+
+  // abertura
+  function abrir(){ ab.classList.add('sai'); body.classList.remove('carregando'); body.classList.add('pronto'); setTimeout(function(){ ab.remove(); }, 1300); }
+  if (reduz) { ab.remove(); body.classList.remove('carregando'); body.classList.add('pronto'); }
+  else { var t0 = Date.now(); window.addEventListener('load', function(){ setTimeout(abrir, Math.max(0, 2000 - (Date.now() - t0))); }); setTimeout(function(){ if (document.getElementById('abertura')) abrir(); }, 4000); }
+
+  // manifesto palavra por palavra
+  var m = document.getElementById('manifesto');
+  m.innerHTML = m.innerHTML.replace(/(<em>.*?<\/em>|[^\s<]+)/g, '<span class="p">$1</span>');
+  var palavras = m.querySelectorAll('.p');
+
+  // revelar
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } }); }, {threshold:.18, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.rv, .rv-linha').forEach(function(el){ io.observe(el); });
+  var leque = document.getElementById('leque');
+  new IntersectionObserver(function(es){ es.forEach(function(e){ leque.classList.toggle('aberto', e.isIntersecting); }); }, {threshold:.45}).observe(leque);
+
+  // rolagem
+  var topo = document.getElementById('topo'), ultimo = 0;
+  var look = document.getElementById('lookbook'), faixa = document.getElementById('faixa'), barra = document.getElementById('barra'), cont = document.getElementById('cont');
+  var par = document.querySelector('[data-parallax]');
+  var desk = matchMedia('(min-width: 1001px)');
+  function rolar(){
+    var y = scrollY, vh = innerHeight;
+    topo.classList.toggle('solido', y > 40);
+    topo.classList.toggle('some', y > ultimo && y > 600);
+    ultimo = y;
+    if (!reduz && par && y < vh) par.style.transform = 'translateY(' + (y * 0.12) + 'px) scale(1.02)';
+    // manifesto
+    var r = m.getBoundingClientRect();
+    var p = Math.min(1, Math.max(0, (vh * .85 - r.top) / (r.height + vh * .35)));
+    var n = Math.round(p * palavras.length);
+    palavras.forEach(function(w, i){ w.classList.toggle('on', i < n); });
+    // lookbook horizontal
+    if (desk.matches) {
+      var lr = look.getBoundingClientRect();
+      var total = look.offsetHeight - vh;
+      var prog = Math.min(1, Math.max(0, -lr.top / total));
+      var dist = faixa.scrollWidth - innerWidth + 80;
+      faixa.style.transform = 'translate3d(' + (-dist * prog) + 'px,0,0)';
+      barra.style.width = (prog * 100) + '%';
+      cont.textContent = String(Math.min(8, Math.floor(prog * 8) + 1)).padStart(2, '0');
+    }
+  }
+  var pedido = false;
+  addEventListener('scroll', function(){ if (!pedido){ pedido = true; requestAnimationFrame(function(){ rolar(); pedido = false; }); } }, {passive:true});
+  addEventListener('resize', rolar); rolar();
+
+  if (!fino || reduz) return;
+
+  // cursor
+  var c = document.querySelector('.cursor'), a = document.querySelector('.cursor-anel');
+  var mx = innerWidth/2, my = innerHeight/2, ax = mx, ay = my;
+  addEventListener('mousemove', function(e){ mx = e.clientX; my = e.clientY; c.style.transform = 'translate(' + (mx-3) + 'px,' + (my-3) + 'px)'; });
+  (function loop(){ ax += (mx - ax) * .16; ay += (my - ay) * .16; a.style.transform = 'translate(' + ax + 'px,' + ay + 'px) translate(-50%,-50%)'; requestAnimationFrame(loop); })();
+  c.style.left = c.style.top = a.style.left = a.style.top = '0';
+  c.style.transform = 'none';
+  document.querySelectorAll('[data-cursor]').forEach(function(el){
+    el.addEventListener('mouseenter', function(){ if (el.dataset.cursor){ a.classList.add('grande'); a.textContent = el.dataset.cursor; } });
+    el.addEventListener('mouseleave', function(){ a.classList.remove('grande'); a.textContent = ''; });
+  });
+
+  // botões magnéticos
+  document.querySelectorAll('.btn, .zap').forEach(function(b){
+    b.addEventListener('mousemove', function(e){ var r = b.getBoundingClientRect(); var x = e.clientX - r.left - r.width/2, y = e.clientY - r.top - r.height/2; b.style.transform = 'translate(' + x*.22 + 'px,' + y*.3 + 'px)'; });
+    b.addEventListener('mouseleave', function(){ b.style.transform = ''; });
+  });
+
+  // foto que segue o mouse na lista de categorias
+  var fl = document.querySelector('.flutuante'), fi = fl.querySelector('img'), fx = 0, fy = 0, tx = 0, ty = 0;
+  document.querySelectorAll('.cat').forEach(function(cat){
+    cat.addEventListener('mouseenter', function(){ fi.src = cat.dataset.img; fl.classList.add('on'); });
+    cat.addEventListener('mouseleave', function(){ fl.classList.remove('on'); });
+  });
+  addEventListener('mousemove', function(e){ tx = e.clientX + 150; ty = e.clientY; });
+  (function seg(){ fx += (tx - fx) * .12; fy += (ty - fy) * .12; fl.style.left = fx + 'px'; fl.style.top = fy + 'px'; requestAnimationFrame(seg); })();
+})();
+</script>
 </body>
 </html>
