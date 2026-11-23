@@ -140,14 +140,16 @@ header.some{transform:translateY(-100%)}
 /* lookbook horizontal */
 .lookbook{position:relative;height:340vh}
 .lookbook .fixo{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
-.lookbook .topo{display:flex;justify-content:space-between;align-items:end;margin-bottom:46px}
+.lookbook .wrap{width:100%}
+.lookbook .fixo{padding-top:60px}
+.lookbook .topo{display:flex;justify-content:space-between;align-items:end;margin-bottom:34px}
 .lookbook h2{font-family:var(--serif);font-weight:400;font-size:clamp(44px,5.6vw,92px);line-height:.95;margin-top:16px}
 .lookbook h2 em{font-style:italic}
 .contador{font-family:var(--serif);font-size:18px;color:var(--dim)}
 .contador b{color:var(--gold);font-weight:400;font-size:44px}
 .faixa{display:flex;gap:36px;padding-left:max(40px,calc((100vw - 1320px)/2 + 40px));will-change:transform}
-.look{flex:none;width:clamp(260px,24vw,350px);position:relative}
-.look:nth-child(even){margin-top:80px}
+.look{flex:none;width:min(clamp(230px,21vw,330px),40vh);position:relative}
+.look:nth-child(even){margin-top:56px}
 .look .img{aspect-ratio:3/4.4;overflow:hidden;position:relative;background:var(--bg-3)}
 .look img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;filter:contrast(1.05) saturate(.9) brightness(.94);transform:scale(1.08);transition:transform 1.4s var(--ease-out),filter .8s}
 .look:hover img{transform:scale(1.15);filter:contrast(1.08) saturate(1) brightness(1)}
@@ -159,7 +161,7 @@ header.some{transform:translateY(-100%)}
 .look .num{position:absolute;top:16px;left:18px;z-index:2;font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ivory)}
 .look.fim{display:grid;place-items:center;aspect-ratio:3/4.4;border:1px solid var(--line);text-align:center;padding:30px;align-self:flex-start}
 .look.fim .serif{font-size:34px;line-height:1.1;margin-bottom:28px}
-.progresso{margin-top:54px;height:1px;background:var(--line);position:relative}
+.progresso{margin-top:40px;height:1px;background:var(--line);position:relative}
 .progresso i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--gold)}
 
 /* categorias */
@@ -198,12 +200,12 @@ header.some{transform:translateY(-100%)}
 .leque{position:relative;height:560px}
 .leque figure{position:absolute;top:50%;left:50%;width:250px;aspect-ratio:3/4.3;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.55);transition:transform 1.1s var(--ease)}
 .leque img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
-.leque figure:nth-child(1){transform:translate(-50%,-50%) rotate(-3deg)}
-.leque figure:nth-child(2){transform:translate(-50%,-50%) rotate(2deg)}
-.leque figure:nth-child(3){transform:translate(-50%,-50%) rotate(-1deg)}
-.leque.aberto figure:nth-child(1){transform:translate(-118%,-46%) rotate(-9deg)}
-.leque.aberto figure:nth-child(2){transform:translate(18%,-54%) rotate(8deg)}
-.leque.aberto figure:nth-child(3){transform:translate(-50%,-50%) rotate(0deg);z-index:2}
+.leque figure:nth-of-type(1){transform:translate(-50%,-50%) rotate(-3deg)}
+.leque figure:nth-of-type(2){transform:translate(-50%,-50%) rotate(2deg)}
+.leque figure:nth-of-type(3){transform:translate(-50%,-50%) rotate(-1deg)}
+.leque.aberto figure:nth-of-type(1){transform:translate(-118%,-46%) rotate(-9deg)}
+.leque.aberto figure:nth-of-type(2){transform:translate(18%,-54%) rotate(8deg)}
+.leque.aberto figure:nth-of-type(3){transform:translate(-50%,-50%) rotate(0deg);z-index:2}
 .leque .tres{position:absolute;right:-10px;bottom:-30px;font-family:var(--serif);font-style:italic;font-size:280px;line-height:1;color:rgba(138,111,62,.16);z-index:0}
 
 /* experiência */
@@ -286,8 +288,8 @@ footer{border-top:1px solid var(--line);padding:70px 0 40px}
   .etiqueta div{font-size:20px}
   .leque figure{width:150px}
   .leque{height:360px}
-  .leque.aberto figure:nth-child(1){transform:translate(-110%,-46%) rotate(-9deg)}
-  .leque.aberto figure:nth-child(2){transform:translate(10%,-54%) rotate(8deg)}
+  .leque.aberto figure:nth-of-type(1){transform:translate(-110%,-46%) rotate(-9deg)}
+  .leque.aberto figure:nth-of-type(2){transform:translate(10%,-54%) rotate(8deg)}
   .btn{padding:16px 24px}
 }
 @media (prefers-reduced-motion:reduce){
